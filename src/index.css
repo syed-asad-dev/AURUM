@@ -1,0 +1,56 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --bg-primary: #080808;
+    --bg-surface: #111111;
+    --bg-card: #161616;
+    --gold-primary: #C9A84C;
+    --gold-light: #E8C97A;
+    --gold-dark: #8B6914;
+    --gold-glow: rgba(201,168,76,0.3);
+    --text-primary: #FFFFFF;
+    --text-muted: #A0A0A0;
+    --text-gold: #C9A84C;
+    --border-gold: rgba(201,168,76,0.2);
+  }
+
+  html {
+    scroll-behavior: smooth;
+    overflow-x: hidden;
+  }
+  
+  body {
+    background-color: var(--bg-primary);
+    color: var(--text-primary);
+    overflow-x: hidden;
+  }
+
+  /* Custom scrollbar for webkit */
+  ::-webkit-scrollbar {
+    width: 6px;
+  }
+  ::-webkit-scrollbar-track {
+    background: var(--bg-primary);
+  }
+  ::-webkit-scrollbar-thumb {
+    background: var(--gold-dark);
+    border-radius: 3px;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: var(--gold-primary);
+  }
+
+  * {
+    cursor: none; /* Due to custom golden cursor */
+  }
+}
+
+@layer utilities {
+  .text-stroke-white {
+    -webkit-text-stroke: 1px white;
+    color: transparent;
+  }
+}
