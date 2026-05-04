@@ -1,0 +1,111 @@
+.materials {
+  height: 100vh;
+  display: flex;
+  width: 100%;
+}
+
+.mat-left {
+  flex: 0 0 50%;
+  overflow: hidden;
+  position: relative;
+}
+
+.mat-image-container {
+  width: 100%;
+  height: 120%; /* For parallax room */
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.mat-image-container img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.mat-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.2);
+}
+
+.mat-right {
+  flex: 0 0 50%;
+  background: var(--black);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 80px;
+}
+
+.mat-content {
+  max-width: 480px;
+  width: 100%;
+}
+
+.mat-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-weight: 600;
+  font-size: 56px;
+  color: var(--white);
+  line-height: 1.1;
+  margin-top: 20px;
+}
+
+.mat-divider {
+  width: 60px;
+  height: 1px;
+  background: rgba(255, 255, 255, 0.2);
+  margin: 40px 0;
+}
+
+.mat-text {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 300;
+  font-size: 14px;
+  color: rgba(255, 255, 255, 0.5);
+  line-height: 1.9;
+  margin-bottom: 60px;
+}
+
+.mat-list {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}
+
+.mat-item {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+}
+
+.mat-item-line {
+  width: 30px;
+  height: 1px;
+  background: rgba(255, 255, 255, 0.2);
+}
+
+.mat-item-text {
+  font-family: 'Cormorant Garamond', serif;
+  font-weight: 400;
+  font-size: 18px;
+  color: var(--white);
+}
+
+@media (max-width: 1024px) {
+  .materials {
+    flex-direction: column;
+    height: auto;
+  }
+  .mat-left {
+    height: 60vh;
+  }
+  .mat-right {
+    padding: 100px 40px;
+  }
+}

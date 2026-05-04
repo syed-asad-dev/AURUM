@@ -4,49 +4,11 @@
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="/vite.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="description" content="AURUM - Beyond Time. Beyond Ordinary." />
-    <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
-    <title>AURUM | Luxury Swiss Timepieces</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400;1,600&family=Montserrat:wght@200;300;400;500;600&display=swap" rel="stylesheet">
+    <title>AURUM | Beyond Time. Beyond Ordinary.</title>
   </head>
-  <body class="bg-bg-primary text-text-primary antialiased font-sans">
+  <body>
     <div id="root"></div>
     <script type="module" src="/src/main.jsx"></script>
-    <script>
-      // Custom golden cursor
-      const cursor = document.createElement('div');
-      cursor.style.width = '8px';
-      cursor.style.height = '8px';
-      cursor.style.backgroundColor = '#C9A84C';
-      cursor.style.borderRadius = '50%';
-      cursor.style.position = 'fixed';
-      cursor.style.pointerEvents = 'none';
-      cursor.style.zIndex = '9999';
-      cursor.style.transform = 'translate(-50%, -50%)';
-      cursor.style.transition = 'transform 0.1s ease-out';
-      cursor.style.boxShadow = '0 0 10px rgba(201,168,76,0.6)';
-      document.body.appendChild(cursor);
-
-      document.addEventListener('mousemove', (e) => {
-        cursor.style.left = e.clientX + 'px';
-        cursor.style.top = e.clientY + 'px';
-      });
-      
-      // Enlarge cursor on hover interactive elements
-      document.addEventListener('mouseover', (e) => {
-        if (e.target.tagName === 'A' || e.target.tagName === 'BUTTON' || e.target.closest('a') || e.target.closest('button')) {
-          cursor.style.transform = 'translate(-50%, -50%) scale(2.5)';
-          cursor.style.backgroundColor = 'rgba(201,168,76,0.3)';
-          cursor.style.border = '1px solid #C9A84C';
-        }
-      });
-      document.addEventListener('mouseout', (e) => {
-        if (e.target.tagName === 'A' || e.target.tagName === 'BUTTON' || e.target.closest('a') || e.target.closest('button')) {
-          cursor.style.transform = 'translate(-50%, -50%) scale(1)';
-          cursor.style.backgroundColor = '#C9A84C';
-          cursor.style.border = 'none';
-        }
-      });
-    </script>
   </body>
 </html>

@@ -1,56 +1,61 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
-
-@layer base {
-  :root {
-    --bg-primary: #080808;
-    --bg-surface: #111111;
-    --bg-card: #161616;
-    --gold-primary: #C9A84C;
-    --gold-light: #E8C97A;
-    --gold-dark: #8B6914;
-    --gold-glow: rgba(201,168,76,0.3);
-    --text-primary: #FFFFFF;
-    --text-muted: #A0A0A0;
-    --text-gold: #C9A84C;
-    --border-gold: rgba(201,168,76,0.2);
-  }
-
-  html {
-    scroll-behavior: smooth;
-    overflow-x: hidden;
-  }
-  
-  body {
-    background-color: var(--bg-primary);
-    color: var(--text-primary);
-    overflow-x: hidden;
-  }
-
-  /* Custom scrollbar for webkit */
-  ::-webkit-scrollbar {
-    width: 6px;
-  }
-  ::-webkit-scrollbar-track {
-    background: var(--bg-primary);
-  }
-  ::-webkit-scrollbar-thumb {
-    background: var(--gold-dark);
-    border-radius: 3px;
-  }
-  ::-webkit-scrollbar-thumb:hover {
-    background: var(--gold-primary);
-  }
-
-  * {
-    cursor: none; /* Due to custom golden cursor */
-  }
+:root {
+  --black: #080808;
+  --dark: #111111;
+  --grey-dark: #1C1C1C;
+  --grey-mid: #555555;
+  --grey-light: #A0A0A0;
+  --white: #FFFFFF;
+  --off-white: #F5F5F5;
+  --border: rgba(255,255,255,0.08);
 }
 
-@layer utilities {
-  .text-stroke-white {
-    -webkit-text-stroke: 1px white;
-    color: transparent;
-  }
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Montserrat', sans-serif;
+  background-color: var(--black);
+  color: var(--white);
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Cormorant Garamond', serif;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-family: inherit;
+}
+
+/* Base styles for Lenis smooth scrolling */
+html.lenis, html.lenis body {
+  height: auto;
+}
+
+.lenis.lenis-smooth {
+  scroll-behavior: auto !important;
+}
+
+.lenis.lenis-smooth [data-lenis-prevent] {
+  overscroll-behavior: contain;
+}
+
+.lenis.lenis-stopped {
+  overflow: hidden;
+}
+
+.lenis.lenis-smooth iframe {
+  pointer-events: none;
 }
