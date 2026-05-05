@@ -1,26 +1,8 @@
-import React, { useEffect, useRef } from 'react';
-import gsap from 'gsap';
-import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import React from 'react';
+import { motion } from 'framer-motion';
 import './Materials.css';
 
-gsap.registerPlugin(ScrollTrigger);
-
 const Materials = () => {
-  const sectionRef = useRef(null);
-  const imageRef = useRef(null);
-
-  useEffect(() => {
-    gsap.to(imageRef.current, {
-      yPercent: -20,
-      ease: "none",
-      scrollTrigger: {
-        trigger: sectionRef.current,
-        start: "top bottom",
-        end: "bottom top",
-        scrub: true
-      }
-    });
-  }, []);
 
   const materialsList = [
     "Grade 5 Titanium",
@@ -30,19 +12,30 @@ const Materials = () => {
   ];
 
   return (
-    <section className="materials" ref={sectionRef}>
-      <div className="mat-left">
+    <section className="materials">
+      <motion.div 
+        className="mat-left"
+        initial={{ opacity: 0, x: -80 }}
+        whileInView={{ opacity: 1, x: 0 }}
+        viewport={{ once: true, amount: 0.1 }}
+        transition={{ duration: 1.1, ease: [0.22, 1, 0.36, 1] }}
+      >
         <div className="mat-image-container">
           <img 
-            ref={imageRef}
             src="https://images.unsplash.com/photo-1548171915-e79a380a2a4b?w=800" 
             alt="Watch mechanism" 
           />
           <div className="mat-overlay"></div>
         </div>
-      </div>
+      </motion.div>
       
-      <div className="mat-right">
+      <motion.div 
+        className="mat-right"
+        initial={{ opacity: 0, x: 80 }}
+        whileInView={{ opacity: 1, x: 0 }}
+        viewport={{ once: true, amount: 0.1 }}
+        transition={{ duration: 1.1, ease: [0.22, 1, 0.36, 1] }}
+      >
         <div className="mat-content">
           <div className="section-label">MATERIALS</div>
           <h2 className="mat-title">Engineered to Perfection</h2>
@@ -62,7 +55,7 @@ const Materials = () => {
             ))}
           </div>
         </div>
-      </div>
+      </motion.div>
     </section>
   );
 };

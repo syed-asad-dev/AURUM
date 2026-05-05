@@ -1,13 +1,8 @@
-import React, { useEffect, useRef } from 'react';
-import gsap from 'gsap';
-import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import React from 'react';
+import { motion } from 'framer-motion';
 import './Gallery.css';
 
-gsap.registerPlugin(ScrollTrigger);
-
 const Gallery = () => {
-  const sectionRef = useRef(null);
-  const imagesRef = useRef([]);
 
   const galleryImages = [
     "https://images.unsplash.com/photo-1587836374828-4dbafa94cf0e?w=800",
@@ -17,43 +12,48 @@ const Gallery = () => {
     "https://images.unsplash.com/photo-1629425733761-caae3b5f2e50?w=600"
   ];
 
-  useEffect(() => {
-    gsap.fromTo(imagesRef.current,
-      { clipPath: "inset(100% 0 0 0)", y: 80, opacity: 0 },
-      { 
-        clipPath: "inset(0% 0 0 0)",
-        y: 0,
-        opacity: 1, 
-        duration: 1.2, 
-        stagger: 0.1, 
-        ease: "power3.inOut",
-        scrollTrigger: {
-          trigger: sectionRef.current,
-          start: "top 85%"
-        }
-      }
-    );
-  }, []);
+
 
   return (
-    <section id="gallery" className="gallery" ref={sectionRef}>
-      <div className="gallery-header">
+    <section id="gallery" className="gallery">
+      <motion.div 
+        className="gallery-header"
+        initial={{ opacity: 0, y: 60 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, amount: 0.1 }}
+        transition={{ duration: 1, ease: [0.22, 1, 0.36, 1] }}
+      >
         <div className="section-label">AESTHETICS</div>
         <h2 className="gallery-title">The Gallery</h2>
-      </div>
+      </motion.div>
 
-      <div className="gallery-grid">
+      <motion.div 
+        className="gallery-grid"
+        variants={{
+          hidden: {},
+          visible: { transition: { staggerChildren: 0.2 } }
+        }}
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true, amount: 0.1 }}
+      >
         {galleryImages.map((src, i) => (
-          <div 
+          <motion.div 
             className={`gal-item item-${i + 1}`} 
             key={i}
-            ref={el => imagesRef.current[i] = el}
+            variants={{
+              hidden: { opacity: 0, y: 60, clipPath: "inset(100% 0 0 0)" },
+              visible: { 
+                opacity: 1, y: 0, clipPath: "inset(0% 0 0 0)",
+                transition: { duration: 1, ease: [0.22, 1, 0.36, 1] }
+              }
+            }}
           >
             <img src={src} alt={`Gallery Image ${i + 1}`} />
             <div className="gal-overlay"></div>
-          </div>
+          </motion.div>
         ))}
-      </div>
+      </motion.div>
     </section>
   );
 };

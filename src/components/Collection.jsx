@@ -1,14 +1,8 @@
-import React, { useEffect, useRef } from 'react';
-import gsap from 'gsap';
-import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import React from 'react';
+import { motion } from 'framer-motion';
 import './Collection.css';
 
-gsap.registerPlugin(ScrollTrigger);
-
 const Collection = () => {
-  const sectionRef = useRef(null);
-  const headerRef = useRef(null);
-  const cardsRef = useRef([]);
 
   const watches = [
     {
@@ -55,46 +49,43 @@ const Collection = () => {
     }
   ];
 
-  useEffect(() => {
-    const section = sectionRef.current;
-    
-    gsap.fromTo(headerRef.current,
-      { y: 80, opacity: 0 },
-      { 
-        y: 0, opacity: 1, duration: 1.2, ease: 'power3.out',
-        scrollTrigger: {
-          trigger: section,
-          start: 'top 85%'
-        }
-      }
-    );
 
-    gsap.fromTo(cardsRef.current,
-      { y: 80, opacity: 0 },
-      { 
-        y: 0, opacity: 1, duration: 1.2, stagger: 0.1, ease: 'power3.out',
-        scrollTrigger: {
-          trigger: section,
-          start: 'top 85%'
-        }
-      }
-    );
-  }, []);
 
   return (
-    <section id="collection" className="collection" ref={sectionRef}>
-      <div className="collection-header" ref={headerRef}>
+    <section id="collection" className="collection">
+      <motion.div 
+        className="collection-header"
+        initial={{ opacity: 0, y: 60 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, amount: 0.1 }}
+        transition={{ duration: 1, ease: [0.22, 1, 0.36, 1] }}
+      >
         <div className="section-label">COLLECTION</div>
         <h2 className="collection-title">The Timepieces</h2>
         <p className="collection-subtitle">Discover our masterfully crafted instruments of time</p>
-      </div>
+      </motion.div>
 
-      <div className="collection-grid">
+      <motion.div 
+        className="collection-grid"
+        variants={{
+          hidden: {},
+          visible: { transition: { staggerChildren: 0.2 } }
+        }}
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true, amount: 0.1 }}
+      >
         {watches.map((watch, index) => (
-          <div 
+          <motion.div 
             className="watch-card" 
-            key={index} 
-            ref={el => cardsRef.current[index] = el}
+            key={index}
+            variants={{
+              hidden: { opacity: 0, y: 60 },
+              visible: { 
+                opacity: 1, y: 0,
+                transition: { duration: 1, ease: [0.22, 1, 0.36, 1] }
+              }
+            }}
           >
             <div className="watch-img-container">
               <img src={watch.img} alt={watch.name} />
@@ -106,9 +97,9 @@ const Collection = () => {
               <p className="watch-desc">{watch.desc}</p>
               <p className="watch-price">{watch.price}</p>
             </div>
-          </div>
+          </motion.div>
         ))}
-      </div>
+      </motion.div>
     </section>
   );
 };

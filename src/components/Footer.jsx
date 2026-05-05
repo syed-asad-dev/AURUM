@@ -1,4 +1,5 @@
 import React from 'react';
+import { motion } from 'framer-motion';
 import './Footer.css';
 
 const Footer = () => {
@@ -9,7 +10,13 @@ const Footer = () => {
   };
 
   return (
-    <footer className="footer">
+    <motion.footer 
+      className="footer"
+      initial={{ opacity: 0, y: 60 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true, amount: 0.1 }}
+      transition={{ duration: 1, ease: [0.22, 1, 0.36, 1] }}
+    >
       <div className="footer-top">
         <div className="footer-col-left">
           <h2 className="footer-logo">AURUM</h2>
@@ -41,7 +48,7 @@ const Footer = () => {
       <div className="footer-bottom">
         <p>© 2025 AURUM. All rights reserved.</p>
       </div>
-    </footer>
+    </motion.footer>
   );
 };
 

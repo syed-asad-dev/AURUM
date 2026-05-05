@@ -4,8 +4,9 @@ import './Hero.css';
 
 const Hero = () => {
   const getAnim = (delayTime) => ({
-    hidden: { opacity: 0, y: 80 },
-    show: { opacity: 1, y: 0, transition: { duration: 1.2, delay: delayTime, ease: "easeOut" } }
+    initial: { opacity: 0, y: 60 },
+    animate: { opacity: 1, y: 0 },
+    transition: { duration: 1, delay: delayTime, ease: [0.22, 1, 0.36, 1] }
   });
 
   const scrollTo = (id) => {
@@ -47,30 +48,25 @@ const Hero = () => {
       </div>
 
       <div className="hero-content-bottom-left">
-        <motion.div 
-          className="hero-text-wrapper-left"
-          initial="hidden"
-          animate="show"
-        >
-          <motion.div className="hero-label-left" variants={getAnim(0.2)}>
+        <div className="hero-text-wrapper-left">
+          <motion.div className="hero-label-left" {...getAnim(0.2)}>
             SWISS MADE • EST. 1889
           </motion.div>
           
           <h1 className="hero-title-left">
-            <motion.span style={{ display: 'block' }} variants={getAnim(0.5)}>BEYOND</motion.span>
-            <motion.span style={{ display: 'block' }} variants={getAnim(0.7)}>TIME.</motion.span>
+            <motion.span style={{ display: 'block' }} {...getAnim(0.5)}>BEYOND<br/>TIME.</motion.span>
           </h1>
 
-          <motion.div className="hero-divider-left" variants={getAnim(0.9)}></motion.div>
+          <motion.div className="hero-divider-left" {...getAnim(0.8)}></motion.div>
 
-          <motion.p className="hero-subtext-left" variants={getAnim(1.1)}>
+          <motion.p className="hero-subtext-left" {...getAnim(1.0)}>
             Precision engineered for those who demand perfection.
           </motion.p>
 
-          <motion.div className="hero-buttons-left" variants={getAnim(1.3)}>
+          <motion.div className="hero-buttons-left" {...getAnim(1.2)}>
             <button className="btn-explore" onClick={() => scrollTo('collection')}>EXPLORE COLLECTION</button>
           </motion.div>
-        </motion.div>
+        </div>
       </div>
 
       <div className="hero-scroll-indicator">
