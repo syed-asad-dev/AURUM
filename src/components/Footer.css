@@ -21,7 +21,7 @@
 }
 
 .footer-tagline {
-  font-family: 'Montserrat', sans-serif;
+  font-family: 'Raleway', sans-serif;
   font-weight: 300;
   font-size: 12px;
   color: rgba(255, 255, 255, 0.4);
@@ -39,7 +39,7 @@
 }
 
 .footer-links a {
-  font-family: 'Montserrat', sans-serif;
+  font-family: 'Raleway', sans-serif;
   font-weight: 300;
   font-size: 11px;
   letter-spacing: 0.2em;
@@ -58,7 +58,7 @@
 }
 
 .footer-est {
-  font-family: 'Montserrat', sans-serif;
+  font-family: 'Raleway', sans-serif;
   font-weight: 300;
   font-size: 12px;
   letter-spacing: 0.1em;
@@ -94,7 +94,7 @@
   border: none;
   border-bottom: 1px solid rgba(255, 255, 255, 0.2);
   color: var(--white);
-  font-family: 'Montserrat', sans-serif;
+  font-family: 'Raleway', sans-serif;
   font-weight: 300;
   font-size: 14px;
   padding: 12px 0;
@@ -106,7 +106,7 @@
 }
 
 .newsletter-btn {
-  font-family: 'Montserrat', sans-serif;
+  font-family: 'Raleway', sans-serif;
   font-weight: 300;
   font-size: 11px;
   letter-spacing: 0.2em;
@@ -129,7 +129,7 @@
 }
 
 .footer-bottom p {
-  font-family: 'Montserrat', sans-serif;
+  font-family: 'Raleway', sans-serif;
   font-weight: 200;
   font-size: 11px;
   color: rgba(255, 255, 255, 0.2);

@@ -85,7 +85,7 @@
 }
 
 .hero-subtext-left {
-  font-family: 'Montserrat', sans-serif;
+  font-family: 'Raleway', sans-serif;
   font-weight: 300;
   font-size: 14px;
   color: rgba(255, 255, 255, 0.5);
@@ -102,7 +102,7 @@
   background: transparent;
   color: var(--white);
   border: 1px solid var(--white);
-  font-family: 'Montserrat', sans-serif;
+  font-family: 'Raleway', sans-serif;
   font-weight: 300;
   font-size: 11px;
   letter-spacing: 0.2em;
@@ -128,7 +128,7 @@
 }
 
 .hero-scroll-indicator span {
-  font-family: 'Montserrat', sans-serif;
+  font-family: 'Raleway', sans-serif;
   font-weight: 200;
   font-size: 9px;
   letter-spacing: 0.25em;
