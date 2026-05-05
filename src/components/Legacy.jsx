@@ -10,27 +10,33 @@ const Legacy = () => {
   const leftRef = useRef(null);
   const rightRef = useRef(null);
 
+  const scrollTo = (id) => {
+    document.getElementById(id)?.scrollIntoView({ 
+      behavior: 'smooth' 
+    });
+  };
+
   useEffect(() => {
     const section = sectionRef.current;
     
     gsap.fromTo(leftRef.current, 
-      { x: -80, opacity: 0 },
+      { y: 80, opacity: 0 },
       { 
-        x: 0, opacity: 1, duration: 1, ease: 'power3.out',
+        y: 0, opacity: 1, duration: 1.2, ease: 'power3.out',
         scrollTrigger: {
           trigger: section,
-          start: 'top 70%',
+          start: 'top 85%',
         }
       }
     );
 
     gsap.fromTo(rightRef.current, 
-      { x: 80, opacity: 0 },
+      { y: 80, opacity: 0 },
       { 
-        x: 0, opacity: 1, duration: 1, ease: 'power3.out',
+        y: 0, opacity: 1, duration: 1.2, ease: 'power3.out',
         scrollTrigger: {
           trigger: section,
-          start: 'top 70%',
+          start: 'top 85%',
         }
       }
     );
@@ -56,7 +62,7 @@ const Legacy = () => {
             heirlooms — instruments of time that transcend 
             generations.
           </p>
-          <a href="#" className="legacy-link">DISCOVER MORE →</a>
+          <a href="#craftsmanship" onClick={(e) => { e.preventDefault(); scrollTo('craftsmanship'); }} className="legacy-link">DISCOVER MORE →</a>
         </div>
         <div className="legacy-right" ref={rightRef}>
           <div className="legacy-image-wrapper">

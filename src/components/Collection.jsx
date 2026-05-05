@@ -59,12 +59,12 @@ const Collection = () => {
     const section = sectionRef.current;
     
     gsap.fromTo(headerRef.current,
-      { y: 50, opacity: 0 },
+      { y: 80, opacity: 0 },
       { 
-        y: 0, opacity: 1, duration: 1, ease: 'power3.out',
+        y: 0, opacity: 1, duration: 1.2, ease: 'power3.out',
         scrollTrigger: {
           trigger: section,
-          start: 'top 75%'
+          start: 'top 85%'
         }
       }
     );
@@ -72,10 +72,10 @@ const Collection = () => {
     gsap.fromTo(cardsRef.current,
       { y: 80, opacity: 0 },
       { 
-        y: 0, opacity: 1, duration: 1, stagger: 0.1, ease: 'power3.out',
+        y: 0, opacity: 1, duration: 1.2, stagger: 0.1, ease: 'power3.out',
         scrollTrigger: {
           trigger: section,
-          start: 'top 60%'
+          start: 'top 85%'
         }
       }
     );

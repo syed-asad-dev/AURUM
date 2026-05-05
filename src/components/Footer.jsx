@@ -2,6 +2,12 @@ import React from 'react';
 import './Footer.css';
 
 const Footer = () => {
+  const scrollTo = (id) => {
+    document.getElementById(id)?.scrollIntoView({ 
+      behavior: 'smooth' 
+    });
+  };
+
   return (
     <footer className="footer">
       <div className="footer-top">
@@ -12,10 +18,10 @@ const Footer = () => {
         
         <div className="footer-col-center">
           <div className="footer-links">
-            <a href="#legacy">LEGACY</a>
-            <a href="#collection">COLLECTION</a>
-            <a href="#craft">CRAFT</a>
-            <a href="#gallery">GALLERY</a>
+            <a href="#legacy" onClick={(e) => { e.preventDefault(); scrollTo('legacy'); }}>LEGACY</a>
+            <a href="#collection" onClick={(e) => { e.preventDefault(); scrollTo('collection'); }}>COLLECTION</a>
+            <a href="#craftsmanship" onClick={(e) => { e.preventDefault(); scrollTo('craftsmanship'); }}>CRAFT</a>
+            <a href="#gallery" onClick={(e) => { e.preventDefault(); scrollTo('gallery'); }}>GALLERY</a>
           </div>
         </div>
         

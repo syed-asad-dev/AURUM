@@ -52,12 +52,12 @@ const Craftsmanship = () => {
 
   useEffect(() => {
     gsap.fromTo(blocksRef.current,
-      { y: 50, opacity: 0 },
+      { y: 80, opacity: 0 },
       { 
-        y: 0, opacity: 1, duration: 1, stagger: 0.2, ease: 'power3.out',
+        y: 0, opacity: 1, duration: 1.2, stagger: 0.2, ease: 'power3.out',
         scrollTrigger: {
           trigger: sectionRef.current,
-          start: 'top 60%'
+          start: 'top 85%'
         }
       }
     );

@@ -19,15 +19,17 @@ const Gallery = () => {
 
   useEffect(() => {
     gsap.fromTo(imagesRef.current,
-      { clipPath: "inset(100% 0 0 0)" },
+      { clipPath: "inset(100% 0 0 0)", y: 80, opacity: 0 },
       { 
-        clipPath: "inset(0% 0 0 0)", 
+        clipPath: "inset(0% 0 0 0)",
+        y: 0,
+        opacity: 1, 
         duration: 1.2, 
         stagger: 0.1, 
         ease: "power3.inOut",
         scrollTrigger: {
           trigger: sectionRef.current,
-          start: "top 60%"
+          start: "top 85%"
         }
       }
     );

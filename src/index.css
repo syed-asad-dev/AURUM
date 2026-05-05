@@ -16,7 +16,7 @@
 }
 
 body {
-  font-family: 'Montserrat', sans-serif;
+  font-family: 'Raleway', sans-serif;
   background-color: var(--black);
   color: var(--white);
   overflow-x: hidden;
@@ -30,6 +30,7 @@ h1, h2, h3, h4, h5, h6 {
 a {
   text-decoration: none;
   color: inherit;
+  cursor: pointer;
 }
 
 button {
