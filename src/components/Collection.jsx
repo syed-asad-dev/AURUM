@@ -16,21 +16,42 @@ const Collection = () => {
       name: "Le Noir",
       desc: "The pinnacle of dark elegance",
       price: "CHF 18,500",
-      img: "https://images.unsplash.com/photo-1539874754764-5a96559165b0?w=600"
+      img: "https://images.unsplash.com/photo-1614164185128-e4ec99c436d7?w=600"
     },
     {
       ref: "REF. 002",
       name: "Aureus",
       desc: "Timeless golden heritage",
       price: "CHF 24,000",
-      img: "https://images.unsplash.com/photo-1506439773649-6e0eb8cfb237?w=600"
+      img: "https://i.pinimg.com/736x/10/40/89/104089230967841f9191334758ce0c91.jpg"
     },
     {
       ref: "REF. 003",
       name: "Tempus",
       desc: "Modern precision engineered",
       price: "CHF 16,200",
-      img: "https://images.unsplash.com/photo-1522312346375-d1a52e2b99b3?w=600"
+      img: "https://i.pinimg.com/736x/b6/41/3c/b6413c6ac0160c20ed3e819272a87c08.jpg"
+    },
+    {
+      ref: "REF. 004",
+      name: "Noir Chronos",
+      desc: "Raw power, refined.",
+      price: "CHF 21,000",
+      img: "https://i.pinimg.com/1200x/43/f5/c3/43f5c338416e8f0f5cf5a34cd9b1b5d8.jpg"
+    },
+    {
+      ref: "REF. 005",
+      name: "Celestial",
+      desc: "Inspired by the cosmos.",
+      price: "CHF 28,500",
+      img: "https://i.pinimg.com/1200x/6a/b9/28/6ab928fe41d1c71a1e8db5f0782b1e8c.jpg"
+    },
+    {
+      ref: "REF. 006",
+      name: "Heritage",
+      desc: "A legacy reborn.",
+      price: "CHF 15,800",
+      img: "https://i.pinimg.com/736x/db/2b/28/db2b2826a7118021f7c613ba586f9597.jpg"
     }
   ];
 
@@ -51,7 +72,7 @@ const Collection = () => {
     gsap.fromTo(cardsRef.current,
       { y: 80, opacity: 0 },
       { 
-        y: 0, opacity: 1, duration: 1, stagger: 0.2, ease: 'power3.out',
+        y: 0, opacity: 1, duration: 1, stagger: 0.1, ease: 'power3.out',
         scrollTrigger: {
           trigger: section,
           start: 'top 60%'
@@ -75,22 +96,16 @@ const Collection = () => {
             key={index} 
             ref={el => cardsRef.current[index] = el}
           >
-            <div className="card-top">
-              <span className="watch-ref">{watch.ref}</span>
-              <div className="watch-img-container">
-                <img src={watch.img} alt={watch.name} />
-              </div>
+            <div className="watch-img-container">
+              <img src={watch.img} alt={watch.name} />
             </div>
             
-            <div className="card-divider"></div>
-            
             <div className="card-info">
+              <span className="watch-ref">{watch.ref}</span>
               <h3 className="watch-name">{watch.name}</h3>
               <p className="watch-desc">{watch.desc}</p>
               <p className="watch-price">{watch.price}</p>
             </div>
-            
-            <button className="discover-btn">DISCOVER</button>
           </div>
         ))}
       </div>

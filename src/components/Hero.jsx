@@ -48,30 +48,29 @@ const Hero = () => {
         <div className="hero-overlay"></div>
       </div>
 
-      <div className="hero-content-centered">
+      <div className="hero-content-bottom-left">
         <motion.div 
-          className="hero-text-wrapper"
+          className="hero-text-wrapper-left"
           variants={staggerContainer}
           initial="hidden"
           animate="show"
         >
-          <motion.div className="hero-label-top" variants={itemAnim}>
+          <motion.div className="hero-label-left" variants={itemAnim}>
             SWISS MADE • EST. 1889
           </motion.div>
           
-          <motion.h1 className="hero-title-main" variants={itemAnim}>
+          <motion.h1 className="hero-title-left" variants={itemAnim}>
             BEYOND<br/>TIME.
           </motion.h1>
 
-          <motion.div className="hero-divider-center" variants={itemAnim}></motion.div>
+          <motion.div className="hero-divider-left" variants={itemAnim}></motion.div>
 
-          <motion.p className="hero-subtext-center" variants={itemAnim}>
+          <motion.p className="hero-subtext-left" variants={itemAnim}>
             Precision engineered for those who demand perfection.
           </motion.p>
 
-          <motion.div className="hero-buttons-center" variants={itemAnim}>
-            <button className="btn-explore">EXPLORE</button>
-            <button className="btn-legacy">OUR LEGACY</button>
+          <motion.div className="hero-buttons-left" variants={itemAnim}>
+            <button className="btn-explore">EXPLORE COLLECTION</button>
           </motion.div>
         </motion.div>
       </div>
