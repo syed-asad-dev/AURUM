@@ -16,21 +16,33 @@ const Hero = () => {
     }
   };
 
+  const videoRef = React.useRef(null);
+
+  React.useEffect(() => {
+    if (videoRef.current) {
+      videoRef.current.play().catch(error => {
+        console.error("Video autoplay failed:", error);
+      });
+    }
+  }, []);
+
   return (
     <section className="hero">
       <a href="#collection" className="skip-link">Skip to content</a>
       
       <div className="hero-video-container">
         <video 
+          ref={videoRef}
           className="hero-video"
           autoPlay 
           loop 
           muted 
           playsInline
+          preload="auto"
           poster="https://images.unsplash.com/photo-1523170335258-f5ed11844a49?w=1920"
           aria-label="AURUM luxury watch hero video"
         >
-          {/* Note: I couldn't access the attached video file, so I'm leaving the src pointing to a local file. Place your attached video as "hero-video.mp4" in the public directory. */}
+          {/* Ensure your video is placed in the public directory as "hero-video.mp4" */}
           <source src="/hero-video.mp4" type="video/mp4" />
         </video>
         <div className="hero-overlay"></div>
