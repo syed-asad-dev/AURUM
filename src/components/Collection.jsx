@@ -49,42 +49,34 @@ const Collection = () => {
     }
   ];
 
-
+  const cardDelays = [0.1, 0.35, 0.6, 0.85, 1.1, 1.35];
 
   return (
     <section id="collection" className="collection">
       <motion.div 
         className="collection-header"
-        initial={{ opacity: 0, y: 60 }}
+        initial={{ opacity: 0, y: 100 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true, amount: 0.1 }}
-        transition={{ duration: 1, ease: [0.22, 1, 0.36, 1] }}
+        transition={{ duration: 1.4, ease: [0.22, 1, 0.36, 1] }}
       >
         <div className="section-label">COLLECTION</div>
         <h2 className="collection-title">The Timepieces</h2>
         <p className="collection-subtitle">Discover our masterfully crafted instruments of time</p>
       </motion.div>
 
-      <motion.div 
-        className="collection-grid"
-        variants={{
-          hidden: {},
-          visible: { transition: { staggerChildren: 0.2 } }
-        }}
-        initial="hidden"
-        whileInView="visible"
-        viewport={{ once: true, amount: 0.1 }}
-      >
+      <div className="collection-grid">
         {watches.map((watch, index) => (
           <motion.div 
             className="watch-card" 
             key={index}
-            variants={{
-              hidden: { opacity: 0, y: 60 },
-              visible: { 
-                opacity: 1, y: 0,
-                transition: { duration: 1, ease: [0.22, 1, 0.36, 1] }
-              }
+            initial={{ opacity: 0, y: 100 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.1 }}
+            transition={{ 
+              duration: 1.4, 
+              delay: cardDelays[index], 
+              ease: [0.22, 1, 0.36, 1] 
             }}
           >
             <div className="watch-img-container">
@@ -99,7 +91,7 @@ const Collection = () => {
             </div>
           </motion.div>
         ))}
-      </motion.div>
+      </div>
     </section>
   );
 };

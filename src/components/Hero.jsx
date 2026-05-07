@@ -1,23 +1,18 @@
-import React from 'react';
+import React, { useRef, useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import './Hero.css';
 
 const Hero = () => {
-  const getAnim = (delayTime) => ({
-    initial: { opacity: 0, y: 60 },
-    animate: { opacity: 1, y: 0 },
-    transition: { duration: 1, delay: delayTime, ease: [0.22, 1, 0.36, 1] }
-  });
-
   const scrollTo = (id) => {
     document.getElementById(id)?.scrollIntoView({ 
       behavior: 'smooth' 
     });
   };
 
-  const videoRef = React.useRef(null);
+  const videoRef = useRef(null);
+  const [videoLoaded, setVideoLoaded] = useState(false);
 
-  React.useEffect(() => {
+  useEffect(() => {
     if (videoRef.current) {
       videoRef.current.play().catch(error => {
         console.error("Video autoplay failed:", error);
@@ -38,7 +33,11 @@ const Hero = () => {
           muted 
           playsInline
           preload="auto"
-          poster="https://images.unsplash.com/photo-1523170335258-f5ed11844a49?w=1920"
+          onCanPlay={() => setVideoLoaded(true)}
+          style={{ 
+            opacity: videoLoaded ? 1 : 0,
+            transition: 'opacity 0.5s ease'
+          }}
           aria-label="AURUM luxury watch hero video"
         >
           {/* Ensure your video is placed in the public directory as "hero-video.mp4" */}
@@ -49,21 +48,41 @@ const Hero = () => {
 
       <div className="hero-content-bottom-left">
         <div className="hero-text-wrapper-left">
-          <motion.div className="hero-label-left" {...getAnim(0.2)}>
+          <motion.div className="hero-label-left"
+            initial={{ opacity: 0, y: 60 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.2, ease: [0.22, 1, 0.36, 1] }}
+          >
             SWISS MADE • EST. 1889
           </motion.div>
           
           <h1 className="hero-title-left">
-            <motion.span style={{ display: 'block' }} {...getAnim(0.5)}>BEYOND<br/>TIME.</motion.span>
+            <motion.span style={{ display: 'block' }}
+              initial={{ opacity: 0, y: 60 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.4, ease: [0.22, 1, 0.36, 1] }}
+            >BEYOND<br/>TIME.</motion.span>
           </h1>
 
-          <motion.div className="hero-divider-left" {...getAnim(0.8)}></motion.div>
+          <motion.div className="hero-divider-left"
+            initial={{ opacity: 0, y: 60 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.6, ease: [0.22, 1, 0.36, 1] }}
+          ></motion.div>
 
-          <motion.p className="hero-subtext-left" {...getAnim(1.0)}>
+          <motion.p className="hero-subtext-left"
+            initial={{ opacity: 0, y: 60 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.7, ease: [0.22, 1, 0.36, 1] }}
+          >
             Precision engineered for those who demand perfection.
           </motion.p>
 
-          <motion.div className="hero-buttons-left" {...getAnim(1.2)}>
+          <motion.div className="hero-buttons-left"
+            initial={{ opacity: 0, y: 60 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.8, ease: [0.22, 1, 0.36, 1] }}
+          >
             <button className="btn-explore" onClick={() => scrollTo('collection')}>EXPLORE COLLECTION</button>
           </motion.div>
         </div>

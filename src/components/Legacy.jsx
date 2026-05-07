@@ -9,23 +9,41 @@ const Legacy = () => {
     });
   };
 
+  const textStagger = {
+    hidden: {},
+    visible: { 
+      transition: { 
+        staggerChildren: 0.3,
+        delayChildren: 0.2 
+      } 
+    }
+  };
+
+  const textChild = {
+    hidden: { opacity: 0, y: 100 },
+    visible: { 
+      opacity: 1, y: 0,
+      transition: { duration: 1.4, ease: [0.22, 1, 0.36, 1] }
+    }
+  };
+
   return (
     <section id="legacy" className="legacy">
       <div className="legacy-container">
         <motion.div 
           className="legacy-left"
-          initial={{ opacity: 0, x: -80 }}
-          whileInView={{ opacity: 1, x: 0 }}
+          variants={textStagger}
+          initial="hidden"
+          whileInView="visible"
           viewport={{ once: true, amount: 0.1 }}
-          transition={{ duration: 1.1, ease: [0.22, 1, 0.36, 1] }}
         >
-          <div className="legacy-label">HERITAGE</div>
-          <h2 className="legacy-title">
+          <motion.div className="legacy-label" variants={textChild}>HERITAGE</motion.div>
+          <motion.h2 className="legacy-title" variants={textChild}>
             A Century of<br />
             <span className="italic">Precision.</span>
-          </h2>
-          <div className="legacy-divider"></div>
-          <p className="legacy-text">
+          </motion.h2>
+          <motion.div className="legacy-divider" variants={textChild}></motion.div>
+          <motion.p className="legacy-text" variants={textChild}>
             Since 1889, AURUM has stood at the intersection 
             of art and engineering. Each timepiece is 
             meticulously crafted requiring over 400 hours 
@@ -34,15 +52,15 @@ const Legacy = () => {
             We do not simply make watches. We create 
             heirlooms — instruments of time that transcend 
             generations.
-          </p>
-          <a href="#craftsmanship" onClick={(e) => { e.preventDefault(); scrollTo('craftsmanship'); }} className="legacy-link">DISCOVER MORE →</a>
+          </motion.p>
+          <motion.a href="#craftsmanship" onClick={(e) => { e.preventDefault(); scrollTo('craftsmanship'); }} className="legacy-link" variants={textChild}>DISCOVER MORE →</motion.a>
         </motion.div>
         <motion.div 
           className="legacy-right"
-          initial={{ opacity: 0, x: 80 }}
+          initial={{ opacity: 0, x: 120 }}
           whileInView={{ opacity: 1, x: 0 }}
           viewport={{ once: true, amount: 0.1 }}
-          transition={{ duration: 1.1, ease: [0.22, 1, 0.36, 1] }}
+          transition={{ duration: 1.4, delay: 0.5, ease: [0.22, 1, 0.36, 1] }}
         >
           <div className="legacy-image-wrapper">
             <img 
