@@ -106,3 +106,27 @@
     max-height: 500px;
   }
 }
+
+@media (max-width: 768px) {
+  .legacy {
+    padding: 80px 30px;
+  }
+  .legacy-title {
+    font-size: 48px;
+  }
+  .legacy-text {
+    font-size: 14px;
+  }
+}
+
+@media (max-width: 480px) {
+  .legacy {
+    padding: 60px 20px;
+  }
+  .legacy-title {
+    font-size: 40px;
+  }
+  .legacy-image-wrapper img {
+    max-height: 350px;
+  }
+}

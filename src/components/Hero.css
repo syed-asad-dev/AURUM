@@ -164,11 +164,31 @@
   .hero-content-bottom-left {
     left: 40px;
     bottom: 40px;
+    right: 40px; /* added right constraint */
   }
   .hero-title-left {
     font-size: 56px;
+    margin-bottom: 24px;
+  }
+  .hero-subtext-left {
+    max-width: 100%;
+    font-size: 13px;
   }
   .btn-explore {
     width: 100%;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero-content-bottom-left {
+    left: 24px;
+    bottom: 30px;
+    right: 24px;
+  }
+  .hero-title-left {
+    font-size: 44px;
+  }
+  .hero-label-left {
+    font-size: 9px;
   }
 }

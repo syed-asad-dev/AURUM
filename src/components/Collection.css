@@ -118,12 +118,28 @@
 
 @media (max-width: 768px) {
   .collection {
-    padding: 100px 40px;
+    padding: 80px 30px;
   }
   .collection-grid {
     grid-template-columns: 1fr;
+    gap: 30px;
   }
   .collection-title {
     font-size: 48px;
+  }
+}
+
+@media (max-width: 480px) {
+  .collection {
+    padding: 60px 20px;
+  }
+  .collection-title {
+    font-size: 40px;
+  }
+  .watch-img-container {
+    height: 200px;
+  }
+  .watch-name {
+    font-size: 20px;
   }
 }

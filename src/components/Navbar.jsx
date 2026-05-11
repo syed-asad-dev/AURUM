@@ -1,9 +1,10 @@
 import React, { useState, useEffect } from 'react';
-import { motion } from 'framer-motion';
+import { motion, AnimatePresence } from 'framer-motion';
 import './Navbar.css';
 
 const Navbar = () => {
   const [scrolled, setScrolled] = useState(false);
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -17,6 +18,7 @@ const Navbar = () => {
     document.getElementById(id)?.scrollIntoView({ 
       behavior: 'smooth' 
     });
+    setMobileMenuOpen(false);
   };
 
   return (
@@ -41,7 +43,37 @@ const Navbar = () => {
         <div className="nav-right">
           <button className="explore-btn" onClick={() => scrollTo('collection')}>EXPLORE</button>
         </div>
+
+        <button 
+          className={`hamburger ${mobileMenuOpen ? 'open' : ''}`}
+          onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+          aria-label="Toggle Menu"
+        >
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
       </div>
+
+      <AnimatePresence>
+        {mobileMenuOpen && (
+          <motion.div 
+            className="mobile-menu"
+            initial={{ opacity: 0, y: -20 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -20 }}
+            transition={{ duration: 0.3 }}
+          >
+            <div className="mobile-nav-links">
+              <a href="#legacy" onClick={(e) => { e.preventDefault(); scrollTo('legacy'); }} className="mobile-nav-link">LEGACY</a>
+              <a href="#collection" onClick={(e) => { e.preventDefault(); scrollTo('collection'); }} className="mobile-nav-link">COLLECTION</a>
+              <a href="#craftsmanship" onClick={(e) => { e.preventDefault(); scrollTo('craftsmanship'); }} className="mobile-nav-link">CRAFT</a>
+              <a href="#gallery" onClick={(e) => { e.preventDefault(); scrollTo('gallery'); }} className="mobile-nav-link">GALLERY</a>
+            </div>
+            <button className="explore-btn mobile-explore" onClick={() => scrollTo('collection')}>EXPLORE COLLECTION</button>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </motion.nav>
   );
 };

@@ -105,15 +105,38 @@
 
 @media (max-width: 768px) {
   .craft {
-    padding: 100px 40px;
+    padding: 80px 30px;
+  }
+  .craft-header {
+    margin-bottom: 60px;
   }
   .features-grid {
     grid-template-columns: 1fr;
+    gap: 40px;
   }
   .craft-title {
     font-size: 48px;
   }
   .counter-item {
     width: 100%;
+  }
+  .counters-row {
+    gap: 40px;
+    padding-top: 60px;
+  }
+}
+
+@media (max-width: 480px) {
+  .craft {
+    padding: 60px 20px;
+  }
+  .craft-title {
+    font-size: 40px;
+  }
+  .feat-num {
+    font-size: 40px;
+  }
+  .counter-num {
+    font-size: 56px;
   }
 }

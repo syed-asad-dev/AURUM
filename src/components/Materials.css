@@ -109,3 +109,30 @@
     padding: 100px 40px;
   }
 }
+
+@media (max-width: 768px) {
+  .mat-left {
+    height: 50vh;
+  }
+  .mat-right {
+    padding: 80px 30px;
+  }
+  .mat-title {
+    font-size: 48px;
+  }
+}
+
+@media (max-width: 480px) {
+  .mat-left {
+    height: 40vh;
+  }
+  .mat-right {
+    padding: 60px 20px;
+  }
+  .mat-title {
+    font-size: 40px;
+  }
+  .mat-item-text {
+    font-size: 16px;
+  }
+}
