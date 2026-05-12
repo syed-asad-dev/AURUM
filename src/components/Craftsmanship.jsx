@@ -47,16 +47,16 @@ const Craftsmanship = () => {
     { num: "04", title: "72hr Reserve", text: "Extended power reserve ensuring your timepiece runs seamlessly over the weekend." }
   ];
 
-  const blockDelays = [0.1, 0.35, 0.6, 0.85];
+  const blockDelays = [0.05, 0.12, 0.19, 0.26];
 
   return (
     <section id="craft" className="craft">
       <motion.div 
         className="craft-header"
-        initial={{ opacity: 0, y: 100 }}
+        initial={{ opacity: 0, y: 40 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true, amount: 0.1 }}
-        transition={{ duration: 1.4, ease: [0.22, 1, 0.36, 1] }}
+        transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
       >
         <div className="section-label">ARTISTRY</div>
         <h2 className="craft-title">Mastering the Craft</h2>
@@ -67,11 +67,11 @@ const Craftsmanship = () => {
           <motion.div 
             className="feature-block" 
             key={i}
-            initial={{ opacity: 0, y: 100 }}
+            initial={{ opacity: 0, y: 40 }}
             whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, amount: 0.1 }}
+            viewport={{ once: true, amount: 0.05 }}
             transition={{ 
-              duration: 1.4, 
+              duration: 0.7, 
               delay: blockDelays[i], 
               ease: [0.22, 1, 0.36, 1] 
             }}
@@ -94,10 +94,10 @@ const Craftsmanship = () => {
           <motion.div 
             className="counter-item" 
             key={index}
-            initial={{ opacity: 0, y: 100 }}
+            initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, amount: 0.1 }}
-            transition={{ duration: 1.4, delay: index * 0.2, ease: [0.22, 1, 0.36, 1] }}
+            transition={{ duration: 0.7, delay: index * 0.1, ease: [0.22, 1, 0.36, 1] }}
           >
             <div className="counter-num"><Counter end={item.end} duration={2500} /></div>
             <div className="counter-label">{item.label}</div>

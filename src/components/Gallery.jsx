@@ -18,10 +18,10 @@ const Gallery = () => {
     <section id="gallery" className="gallery">
       <motion.div 
         className="gallery-header"
-        initial={{ opacity: 0, y: 60 }}
+        initial={{ opacity: 0, y: 30 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true, amount: 0.1 }}
-        transition={{ duration: 1, ease: [0.22, 1, 0.36, 1] }}
+        transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
       >
         <div className="section-label">AESTHETICS</div>
         <h2 className="gallery-title">The Gallery</h2>
@@ -31,7 +31,7 @@ const Gallery = () => {
         className="gallery-grid"
         variants={{
           hidden: {},
-          visible: { transition: { staggerChildren: 0.2 } }
+          visible: { transition: { staggerChildren: 0.1 } }
         }}
         initial="hidden"
         whileInView="visible"
@@ -42,10 +42,10 @@ const Gallery = () => {
             className={`gal-item item-${i + 1}`} 
             key={i}
             variants={{
-              hidden: { opacity: 0, y: 60, clipPath: "inset(100% 0 0 0)" },
+              hidden: { opacity: 0, y: 30, clipPath: "inset(100% 0 0 0)" },
               visible: { 
                 opacity: 1, y: 0, clipPath: "inset(0% 0 0 0)",
-                transition: { duration: 1, ease: [0.22, 1, 0.36, 1] }
+                transition: { duration: 0.7, ease: [0.22, 1, 0.36, 1] }
               }
             }}
           >

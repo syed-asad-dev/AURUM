@@ -49,16 +49,16 @@ const Collection = () => {
     }
   ];
 
-  const cardDelays = [0.1, 0.35, 0.6, 0.85, 1.1, 1.35];
+  const cardDelays = [0.05, 0.1, 0.15, 0.2, 0.25, 0.3];
 
   return (
     <section id="collection" className="collection">
       <motion.div 
         className="collection-header"
-        initial={{ opacity: 0, y: 100 }}
+        initial={{ opacity: 0, y: 40 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true, amount: 0.1 }}
-        transition={{ duration: 1.4, ease: [0.22, 1, 0.36, 1] }}
+        transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
       >
         <div className="section-label">COLLECTION</div>
         <h2 className="collection-title">The Timepieces</h2>
@@ -70,11 +70,11 @@ const Collection = () => {
           <motion.div 
             className="watch-card" 
             key={index}
-            initial={{ opacity: 0, y: 100 }}
+            initial={{ opacity: 0, y: 40 }}
             whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, amount: 0.1 }}
+            viewport={{ once: true, amount: 0.05 }}
             transition={{ 
-              duration: 1.4, 
+              duration: 0.7, 
               delay: cardDelays[index], 
               ease: [0.22, 1, 0.36, 1] 
             }}
